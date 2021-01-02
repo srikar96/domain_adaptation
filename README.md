@@ -30,6 +30,25 @@ Link to the dataset: http://ai.bu.edu/M3SDA/
 	* The third part of the network is the domain classifier which is a binary classifier used to predict the domain the image belongs.
 * The goal is to minimize the classification loss and maximize the domain loss. This is achieved by using a gradeint reversal layer to change the sign of the gradinets while backpropagation.
 * The source images are passed onto both the paths while training whereas the target domain images are only passed through the domain classifier.
+* This way the network learns the features that are domain independant.
+
+## Results
+| **Architecture** | **Configuration** | **Target Accuracy** |
+|--|--|--|
+| Baseline | ResNet-50 | 64.08% |
+| ResNet-50 | training the last 2 layers + mutiple linear layers| 72.13% | 
+|  | training the last 2 layers + single softmax| 74.11% |
+|  | training the last layer + single softmax | 78.93% |
+| ResNet-101 | training the last layer + single softmax | 79.47% |
+| ResNet-152 | training the last layer + single softmax | 79.57% |
+| GooleNet | training the last 2 layers + mutiple linear layers| 67.96% |
+|  | training the last layer + single softmax | 72.40% |
+
+## Folder Contents
+**Baseline**: Contains the code for the baseline model
+**RevGrad**: Contains the code for the RevGrad Architecture
+
+
 
  
 
